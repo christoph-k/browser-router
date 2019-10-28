@@ -1,0 +1,36 @@
+{
+  "name": "browser-router",
+  "version": "1.0.0",
+  "description": "A simple frontend router for custom-elements",
+  "main": "browser-router.js",
+  "scripts": {
+    "test": "mocha",
+    "doc": "jsdoc -d doc src/**",
+    "build": "parcel build -d dist -o browser-router.js src/index.js",
+    "lint": "standard src/**",
+    "fix": "standard --fix src/**"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christoph-k/browser-router.git"
+  },
+  "keywords": [
+    "browser",
+    "router",
+    "custom-elements",
+    "web-components"
+  ],
+  "author": "christoph-k",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/christoph-k/browser-router/issues"
+  },
+  "homepage": "https://github.com/christoph-k/browser-router#readme",
+  "private": true,
+  "devDependencies": {
+    "jsdoc": "^3.6.3",
+    "mocha": "^6.2.2",
+    "parcel": "^1.12.4",
+    "standard": "^14.3.1"
+  }
+}
