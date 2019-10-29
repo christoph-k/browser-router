@@ -4,7 +4,7 @@
   "description": "A simple frontend router for custom-elements",
   "main": "browser-router.js",
   "scripts": {
-    "test": "mocha test/*.js --require babel-register --reporter spec || exit 0",
+    "test": "nyc mocha test/*.js --require babel-register --reporter spec || exit 0",
     "doc": "jsdoc -d doc src/**",
     "build": "parcel build -d dist -o browser-router.js src/index.js",
     "lint": "standard src/** test/**",
@@ -36,6 +36,7 @@
     "jsdoc": "^3.6.3",
     "jsdom": "^15.2.0",
     "mocha": "^6.2.2",
+    "nyc": "^14.1.1",
     "parcel": "^1.12.4",
     "standard": "^14.3.1"
   }
