@@ -33,7 +33,6 @@ export class BrowserRouter {
 
   _path () {
     const pathSplit = window.location.href.split('#', 2)
-    console.log(pathSplit)
     if (pathSplit.length < 2 || pathSplit[1] === '') {
       return '/'
     } else {
