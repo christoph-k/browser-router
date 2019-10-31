@@ -32,3 +32,25 @@ describe('path detection', () => {
     })
   })
 })
+
+describe('routing', () => {
+  const foo = document.createElement('div')
+  foo.innerHTML = 'foo'
+  const bar = document.createElement('div')
+  bar.innerHTML = 'bar'
+  br.setRoute('^/$', foo)
+  br.setRoute('^/bar$', bar)
+  br.route()
+  describe('is done on init', () => {
+    it('should contain string "foo"', () => {
+      assert.strictEqual(document.getElementsByTagName('div')[1].innerHTML, 'foo')
+    })
+  })
+  describe('is done on change', () => {
+    it('should contain bar after changing hash to "/bar"', () => {
+      window.location.hash = '/bar'
+      br.route()
+      assert.strictEqual(document.getElementsByTagName('div')[1].innerHTML, 'bar')
+    })
+  })
+})

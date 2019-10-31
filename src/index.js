@@ -1,4 +1,4 @@
-/* global Regex */
+/* global RegExp */
 
 export class BrowserRouter {
   /**
@@ -8,7 +8,12 @@ export class BrowserRouter {
   constructor (root) {
     this.root = document.getElementById(root)
     this.routes = {}
+    this.currentPath = ''
     this.default = null
+    const self = this
+    window.onhashchange = () => {
+      self.route()
+    }
   }
 
   /**
@@ -18,15 +23,21 @@ export class BrowserRouter {
   setRoute (pattern, element) {
     this.routes[pattern] = {
       element: element,
-      regex: new Regex(pattern)
+      regex: new RegExp(pattern)
     }
   }
 
-  _route () {
+  route () {
     const p = this._path()
+    if (p === this.currentPath) {
+      return
+    }
     for (const route in this.routes) {
-      if (route.regex.match(p)) {
-        this.root = route.element
+      if (p.match(this.routes[route].regex)) {
+        this.root.innerHTML = ''
+        this.root.appendChild(this.routes[route].element)
+        this.currentPath = p
+        return
       }
     }
   }
