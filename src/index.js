@@ -32,12 +32,10 @@ export class BrowserRouter {
   }
 
   _path () {
-    const pathSplit = window.location.href.split('#', 2)
-    if (pathSplit.length < 2 || pathSplit[1] === '') {
+    if (window.location.hash.length < 2) {
       return '/'
     } else {
-      const pathSplit2 = pathSplit[1].split('?', 2)
-      return pathSplit2[0]
+      return window.location.hash.substring(1).split('?', 2)[0]
     }
   }
 }
