@@ -7,8 +7,8 @@
     "test": "nyc mocha test/*.js --require babel-register --reporter spec || exit 0",
     "doc": "jsdoc -d doc src/**",
     "build": "parcel build -d dist -o browser-router.js src/index.js",
-    "lint": "standard src/** test/**",
-    "fix": "standard --fix src/** test/**"
+    "lint": "prettier --check src/** test/**",
+    "fix": "prettier --write src/** test/**"
   },
   "repository": {
     "type": "git",
@@ -28,16 +28,15 @@
   "homepage": "https://github.com/christoph-k/browser-router#readme",
   "private": true,
   "devDependencies": {
-    "@babel/core": "^7.8.4",
+    "@babel/core": "^7.11.4",
     "babel-core": "^6.26.3",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-latest": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
-    "jsdoc": "^3.6.3",
+    "jsdoc": "^3.6.5",
     "jsdom": "^15.2.1",
-    "mocha": "^6.2.2",
+    "mocha": "^6.2.3",
     "nyc": "^14.1.1",
     "parcel": "^1.12.4",
-    "standard": "^14.3.1"
+    "prettier": "^2.0.5"
   }
 }
