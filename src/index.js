@@ -27,19 +27,27 @@ export class BrowserRouter {
         }
     }
 
+    /**
+     * @param {object} element - html element to load
+     */
+    setDefault(element) {
+        this.default = element
+    }
+
     route() {
         const p = this._path()
         if (p === this.currentPath) {
             return
         }
+        this.root.innerHTML = ""
+        this.currentPath = p
         for (const route in this.routes) {
             if (p.match(this.routes[route].regex)) {
-                this.root.innerHTML = ""
                 this.root.appendChild(this.routes[route].element)
-                this.currentPath = p
                 return
             }
         }
+        this.root.appendChild(this.default)
     }
 
     _path() {
